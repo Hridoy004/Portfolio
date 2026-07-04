@@ -11,6 +11,8 @@ import {
 
 import {
   SiExpress,
+  SiMongodb,
+  SiNextdotjs,
   SiPostgresql,
   SiPrisma,
   SiTailwindcss,
@@ -31,6 +33,8 @@ const skills = [
   { name: "Git", icon: FaGitAlt, color: "text-orange-500" },
   { name: "GitHub", icon: FaGithub, color: "text-white" },
   { name: "SQL", icon: FaDatabase, color: "text-purple-400" },
+  { name: "Next.js", icon: SiNextdotjs, color: "text-white" },
+  { name: "MongoDB", icon: SiMongodb, color: "text-green-500" },
 ];
 
 export default function Skills() {
@@ -69,29 +73,6 @@ export default function Skills() {
               </div>
             );
           })}
-        </div>
-
-        {/* Bottom Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
-          <div className="bg-[#151515] rounded-2xl p-6 text-center border border-white/10">
-            <h3 className="text-4xl font-bold text-blue-500">10+</h3>
-            <p className="text-gray-400 mt-2">Projects</p>
-          </div>
-
-          <div className="bg-[#151515] rounded-2xl p-6 text-center border border-white/10">
-            <h3 className="text-4xl font-bold text-blue-500">12+</h3>
-            <p className="text-gray-400 mt-2">Technologies</p>
-          </div>
-
-          <div className="bg-[#151515] rounded-2xl p-6 text-center border border-white/10">
-            <h3 className="text-4xl font-bold text-blue-500">2+</h3>
-            <p className="text-gray-400 mt-2">Years Learning</p>
-          </div>
-
-          <div className="bg-[#151515] rounded-2xl p-6 text-center border border-white/10">
-            <h3 className="text-4xl font-bold text-blue-500">100%</h3>
-            <p className="text-gray-400 mt-2">Passion</p>
-          </div>
         </div>
       </div>
     </section>

@@ -4,7 +4,8 @@ import {
   FaGraduationCap,
   FaLaptopCode,
 } from "react-icons/fa";
-import logoImg from "../../assets/img/Mypic.jpeg";
+import cv from "../../assets/cv/Shahjahan-Hridoy-CV.pdf";
+import logoImg from "../../assets/img/mypic-preview.jpg";
 
 export default function About() {
   const highlights = [
@@ -43,8 +44,7 @@ export default function About() {
 
             {/* Experience Card */}
             <div className="absolute -bottom-8 -right-4 rounded-2xl border border-white/10 bg-[#171717] px-8 py-5 shadow-xl">
-              <h3 className="text-4xl font-bold text-blue-500">2+</h3>
-              <p className="text-gray-400">Years Learning</p>
+              <h3 className="text-2xl font-bold text-blue-500">Fast Learner</h3>
             </div>
           </div>
 
@@ -111,7 +111,8 @@ export default function About() {
 
             {/* Button */}
             <a
-              href="/cv.pdf"
+              href={cv}
+              download="Shahjahan_Hridoy_CV.pdf"
               className="mt-10 inline-flex items-center gap-3 rounded-full bg-blue-600 px-8 py-4 font-semibold transition hover:bg-blue-700"
             >
               <FaDownload />

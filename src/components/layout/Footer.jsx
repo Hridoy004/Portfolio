@@ -2,49 +2,30 @@ import {
   FaEnvelope,
   FaFacebookF,
   FaGithub,
-  FaInstagram,
   FaLinkedin,
   FaMapMarkerAlt,
   FaPhoneAlt,
 } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
 
 const socialLinks = [
   {
     name: "GitHub",
     icon: FaGithub,
-    link: "https://github.com/yourusername",
+    link: "https://github.com/Hridoy004",
   },
   {
     name: "LinkedIn",
     icon: FaLinkedin,
-    link: "https://linkedin.com/in/yourusername",
-  },
-  {
-    name: "Twitter",
-    icon: FaXTwitter,
-    link: "https://x.com/yourusername",
+    link: "https://www.linkedin.com/in/shahjahan-hridoy/",
   },
   {
     name: "Facebook",
     icon: FaFacebookF,
-    link: "https://facebook.com/yourusername",
-  },
-  {
-    name: "Instagram",
-    icon: FaInstagram,
-    link: "https://instagram.com/yourusername",
+    link: "https://www.facebook.com/acs.hridoy.ahmed/",
   },
 ];
 
-const navLinks = [
-  "Home",
-  "About",
-  "Skills",
-  "Projects",
-  "Experience",
-  "Contact",
-];
+const navLinks = ["Home", "About", "Skills", "Projects", "Contact"];
 
 export default function Footer() {
   return (
@@ -91,14 +72,14 @@ export default function Footer() {
 
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1a1a1a] text-white">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#1a1a1a] text-white">
                   <FaEnvelope />
                 </div>
 
                 <div>
                   <p className="text-sm text-gray-500">Email</p>
 
-                  <p className="text-gray-300">hridoy@example.com</p>
+                  <p className="text-gray-300">hridoyahmed2435@gmail.com</p>
                 </div>
               </div>
 
@@ -110,7 +91,7 @@ export default function Footer() {
                 <div>
                   <p className="text-sm text-gray-500">Phone</p>
 
-                  <p className="text-gray-300">+880 1712-345678</p>
+                  <p className="text-gray-300">+880 1924-143235</p>
                 </div>
               </div>
 
@@ -133,7 +114,7 @@ export default function Footer() {
           <div>
             <h3 className="mb-8 text-lg font-bold text-white">Follow Me</h3>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               {socialLinks.map((item) => {
                 const Icon = item.icon;
 
@@ -145,7 +126,11 @@ export default function Footer() {
                     rel="noreferrer"
                     className="group flex items-center gap-4"
                   >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-700 bg-[#161616] text-gray-300 transition-all duration-300 group-hover:-translate-y-1 group-hover:border-blue-500 group-hover:bg-blue-500 group-hover:text-white">
+                    <div
+                      className="flex h-12 w-12 items-center justify-center rounded-full 
+                      border border-gray-700 bg-[#161616] text-gray-300 transition-all 
+                      duration-300 group-hover:-translate-y-1 group-hover:border-blue-500 group-hover:bg-blue-500 group-hover:text-white"
+                    >
                       <Icon size={18} />
                     </div>
 
