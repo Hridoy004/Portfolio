@@ -1,19 +1,19 @@
 import { FaArrowRight, FaGithub, FaLinkedin } from "react-icons/fa";
-
 import { SiNodedotjs, SiPostgresql, SiReact } from "react-icons/si";
+import pic from "../../assets/img/pic.jpeg";
 
 export default function Home() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-[#0b0b0b] text-white mt-0"
+      className="relative overflow-hidden bg-[#0b0b0b] text-white"
     >
       {/* Background Glow */}
       <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-blue-500/20 blur-[140px]" />
       <div className="absolute right-0 bottom-10 h-80 w-80 rounded-full bg-cyan-500/20 blur-[160px]" />
 
-      <div className="mx-auto flex min-h-screen max-w-7xl items-center px-6 py-24">
-        <div className="grid items-center gap-20 lg:grid-cols-2">
+      <div className="mx-auto flex min-h-screen max-w-7xl items-center px-5 sm:px-6 lg:px-8 pt-24 pb-16">
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
           {/* LEFT */}
 
           <div>
@@ -21,7 +21,7 @@ export default function Home() {
               🚀 Available for Work
             </span>
 
-            <h1 className="mt-8 text-6xl font-black leading-tight lg:text-7xl">
+            <h1 className="mt-6 text-5xl font-black leading-tight sm:text-6xl lg:text-7xl">
               Hi,
               <br />
               I'm
@@ -76,7 +76,7 @@ export default function Home() {
           <div className="relative flex justify-center">
             <div className="h-[420px] w-[420px] rounded-full border border-blue-500/20 bg-gradient-to-b from-blue-500/20 to-transparent p-5">
               <img
-                src="l../../."
+                src={pic}
                 alt="profile"
                 className="h-full w-full rounded-full object-cover"
               />

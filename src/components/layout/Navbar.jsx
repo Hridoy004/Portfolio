@@ -1,112 +1,62 @@
 import { useState } from "react";
+import { HiMenuAlt3, HiX } from "react-icons/hi";
 
 const navLinks = [
-  {
-    name: "Home",
-    href: "#home",
-  },
-  {
-    name: "About",
-    href: "#about",
-  },
-  {
-    name: "Skills",
-    href: "#skills",
-  },
-  {
-    name: "Projects",
-    href: "#projects",
-  },
-  {
-    name: "Experience",
-    href: "#experience",
-  },
-  {
-    name: "Contact",
-    href: "#contact",
-  },
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-[#0b0b0b]/90 backdrop-blur-xl">
-      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6">
+    <header className="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-[#0b0b0b]/90 backdrop-blur-md">
+      <div className="mx-auto flex h-16 md:h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
         {/* Logo */}
-
-        <a href="#home" className="flex items-center gap-3">
-          <div className="flex gap-1">
-            {/* <span className="h-4 w-2 rounded bg-white"></span>
-            <span className="h-6 w-2 rounded bg-white"></span>
-            <span className="h-4 w-2 rounded bg-white"></span> */}
-          </div>
-
-          <h2 className="text-3xl font-extrabold tracking-wide text-white">
+        <a href="#home">
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-extrabold text-white">
             SHAHJAHAN HRIDOY
-          </h2>
+          </h1>
         </a>
 
         {/* Desktop Menu */}
-
-        <nav className="hidden items-center gap-10 lg:flex">
+        <nav className="hidden lg:flex items-center gap-10">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="relative text-sm font-semibold uppercase tracking-widest
-              text-gray-300 transition duration-300 hover:text-white after:absolute 
-                after:left-0 after:-bottom-2 after:h-[2px] after:w-0 after:bg-white
-                after:duration-300 hover:after:w-full"
+              className="text-sm uppercase tracking-wider text-gray-300 transition hover:text-blue-500"
             >
               {link.name}
             </a>
           ))}
         </nav>
 
-        {/* Resume Button */}
-
-        {/* <a
-          href="/resume/Shahjahan_Hridoy_CV.pdf"
-          download
-          className="hidden rounded-full bg-white px-8 py-4 text-sm font-bold uppercase tracking-wide text-black transition duration-300 hover:scale-105 hover:bg-gray-200 lg:block"
-        >
-          Download CV
-        </a> */}
-
         {/* Mobile Button */}
-
-        {/* <button onClick={() => setOpen(!open)} className="text-white lg:hidden">
-          {open ? <HiX size={32} /> : <HiOutlineMenuAlt3 size={32} />}
-        </button> */}
+        <button onClick={() => setOpen(!open)} className="lg:hidden text-white">
+          {open ? <HiX size={30} /> : <HiMenuAlt3 size={30} />}
+        </button>
       </div>
 
       {/* Mobile Menu */}
-
       <div
-        className={`overflow-hidden bg-[#111] transition-all duration-500 lg:hidden ${
-          open ? "max-h-[500px]" : "max-h-0"
+        className={`lg:hidden overflow-hidden transition-all duration-300 ${
+          open ? "max-h-96" : "max-h-0"
         }`}
       >
-        <div className="flex flex-col gap-6 px-6 py-8">
+        <div className="bg-[#111] border-t border-white/10 flex flex-col">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="border-b border-white/10 pb-3 text-lg font-medium text-white"
+              className="px-6 py-4 text-white border-b border-white/10 hover:bg-[#1b1b1b]"
             >
               {link.name}
             </a>
           ))}
-
-          <a
-            href="/resume/Shahjahan_Hridoy_CV.pdf"
-            download
-            className="mt-4 rounded-full bg-white py-4 text-center font-semibold text-black"
-          >
-            Download CV
-          </a>
         </div>
       </div>
     </header>
