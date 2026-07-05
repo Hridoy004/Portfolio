@@ -7,7 +7,7 @@ import {
   FaPhoneAlt,
 } from "react-icons/fa";
 
-export default function ContactSection() {
+export default function Contact() {
   return (
     <section id="contact" className="bg-[#0d0d0d] py-24 px-6 text-white">
       <div className="max-w-7xl mx-auto">

@@ -79,7 +79,7 @@ const projects = [
   },
 ];
 
-export default function Projects() {
+export default function Project() {
   return (
     <section id="projects" className="bg-[#0b0b0b] py-24 text-white">
       <div className="mx-auto max-w-7xl px-6">

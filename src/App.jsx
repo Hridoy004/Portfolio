@@ -2,11 +2,10 @@ import "./App.css";
 import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
 import About from "./components/section/About";
-import ContactSection from "./components/section/Contact";
+import Contact from "./components/section/Contact";
 import Home from "./components/section/Home";
-import Projects from "./components/section/Project";
+import Project from "./components/section/Project";
 import Skills from "./components/section/Skills";
-
 function App() {
   return (
     <>
@@ -23,10 +22,10 @@ function App() {
         <Skills />
 
         {/* Projects */}
-        <Projects />
+        <Project />
 
         {/* Contact */}
-        <ContactSection />
+        <Contact />
       </main>
 
       <Footer />
