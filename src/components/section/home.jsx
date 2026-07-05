@@ -1,6 +1,7 @@
 import { FaArrowRight, FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiNodedotjs, SiPostgresql, SiReact } from "react-icons/si";
-import pic from "../../assets/img/pic.jpeg";
+import cv from "../../assets/cv/Shahjahan-Hridoy-CV.pdf";
+import pic from "../../assets/img/my_image.jpeg";
 
 export default function Home() {
   return (
@@ -39,7 +40,8 @@ export default function Home() {
 
             <div className="mt-10 flex flex-wrap gap-5">
               <a
-                href="/cv.pdf"
+                href={cv}
+                download="Shahjahan_Hridoy_CV.pdf"
                 className="rounded-full bg-blue-600 px-8 py-4 font-semibold transition hover:bg-blue-700"
               >
                 Download CV
@@ -56,14 +58,14 @@ export default function Home() {
 
             <div className="mt-10 flex gap-5">
               <a
-                href="#"
+                href="https://github.com/Hridoy004"
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 hover:bg-blue-600"
               >
                 <FaGithub />
               </a>
 
               <a
-                href="#"
+                href="https://www.linkedin.com/in/shahjahan-hridoy/"
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 hover:bg-blue-600"
               >
                 <FaLinkedin />

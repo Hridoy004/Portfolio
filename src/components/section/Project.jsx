@@ -1,36 +1,83 @@
-export const projects = [
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import device from "../../assets/img/device.png";
+import emotion from "../../assets/img/emotion.png";
+import foodies from "../../assets/img/foodies.png";
+import landing from "../../assets/img/landing.png";
+import tasker from "../../assets/img/tasker.png";
+import techmart from "../../assets/img/techmart.png";
+import tic from "../../assets/img/tic-tac-toe.png";
+
+const projects = [
   {
     id: 1,
-    title: "E-Commerce Website",
+    title: "Tasker",
     description:
-      "A modern full-stack e-commerce application with authentication, shopping cart, payment integration and admin dashboard.",
-    image: "/projects/ecommerce.png",
-    tech: ["React", "Tailwind", "Node.js", "Express", "PostgreSQL"],
-    github: "https://github.com/yourusername/ecommerce",
-    live: "https://ecommerce-demo.vercel.app",
+      "Tasker helps you organize and track your daily tasks with ease.",
+    image: tasker,
+    tech: ["React", "Tailwind CSS", "Javascript"],
+    github: "https://github.com/Hridoy004/tasker",
+    live: "https://tasker-ha.vercel.app/",
   },
   {
     id: 2,
-    title: "Task Management App",
-    description:
-      "A task manager with authentication, drag & drop, and real-time updates.",
-    image: "/projects/task.png",
-    tech: ["React", "TypeScript", "Prisma", "PostgreSQL"],
-    github: "#",
-    live: "#",
+    title: "Landing page",
+    description: "Responsive landing page built with React and Tailwind CSS.",
+    image: landing,
+    tech: ["React", "Tailwind CSS"],
+    github: "https://github.com/Hridoy004/brillance-the-landing-page",
+    live: "https://brillance-the-landing-page-ha.vercel.app/",
   },
   {
     id: 3,
-    title: "Portfolio Website",
-    description: "Personal portfolio built using React and Tailwind CSS.",
-    image: "/projects/portfolio.png",
-    tech: ["React", "Tailwind"],
-    github: "#",
-    live: "#",
+    title: "Tic Tac Toe",
+    description: "Tic-Tac-Toe game built with React and Tailwind CSS.",
+    image: tic,
+    tech: ["React", "Tailwind CSS"],
+    github: "https://github.com/Hridoy004/Tic-Tac-Toe",
+    live: "https://tic-tac-toe-ha.vercel.app/",
+  },
+  {
+    id: 4,
+    title: "Foodies",
+    description:
+      "A static food website built with HTML and CSS, showcasing responsive design and clean UI principles",
+    image: foodies,
+    tech: ["HTML", "CSS"],
+    github: "https://github.com/Hridoy004/foodies",
+    live: "https://foodies-alpha-ten.vercel.app/",
+  },
+  {
+    id: 5,
+    title: "E-Commerce Website",
+    description:
+      "A modern full-stack e-commerce application with authentication, shopping cart, payment integration and admin dashboard.",
+    image: techmart,
+    tech: ["Angular", "Node.js", "Express", "MongoDB"],
+    github:
+      "https://docs.google.com/document/d/1RTmc35sE-TMnuCTlhiTnPktQW4Ff7L-yNoQyyKeh_oA/edit?tab=t.0",
+    // live: "#",
+  },
+  {
+    id: 6,
+    title: "Facial Expressions Recognition",
+    description:
+      "A CNN-based facial emotion recognition system using Keras to classify human emotions from facial images.",
+    image: emotion,
+    tech: ["Python", "Keras", "CNN"],
+    github: "https://github.com/Hridoy004/Facial-Expressions-Recognition",
+    // live: "#",
+  },
+  {
+    id: 7,
+    title: "Home-Security-Device",
+    description:
+      "A GSM-based alarm system using Arduino, PIR sensor, and GSM module to send SMS alerts on motion detection.",
+    image: device,
+    tech: ["Arduino", "PIR Sensor", "GSM Module"],
+    github: "https://github.com/Hridoy004/Home-Security-Device",
+    // live: "#",
   },
 ];
-
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 export default function Projects() {
   return (
