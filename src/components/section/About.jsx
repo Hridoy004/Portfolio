@@ -11,18 +11,18 @@ export default function About() {
   const highlights = [
     {
       icon: <FaCode size={22} />,
-      title: "Clean Code",
-      desc: "Writing maintainable and scalable applications.",
+      title: "Problem Solver",
+      desc: "Building efficient and scalable solutions with clean code.",
     },
     {
       icon: <FaLaptopCode size={22} />,
-      title: "Full Stack",
-      desc: "React, Node.js, Express & PostgreSQL.",
+      title: "Full Stack Development",
+      desc: "Creating responsive frontend and robust backend applications.",
     },
     {
       icon: <FaGraduationCap size={22} />,
-      title: "Continuous Learning",
-      desc: "Always learning modern technologies.",
+      title: "Fast Learner",
+      desc: "Passionate about learning modern technologies and best practices.",
     },
   ];
 
@@ -44,7 +44,10 @@ export default function About() {
 
             {/* Experience Card */}
             <div className="absolute -bottom-8 -right-4 rounded-2xl border border-white/10 bg-[#171717] px-8 py-5 shadow-xl">
-              <h3 className="text-2xl font-bold text-blue-500">Fast Learner</h3>
+              <h3 className="text-3xl font-bold text-blue-500">2+</h3>
+              <p className="text-sm text-gray-400">
+                Years Learning Web Development
+              </p>
             </div>
           </div>
 
@@ -61,19 +64,31 @@ export default function About() {
             </h2>
 
             <p className="mt-6 leading-8 text-gray-400">
-              I'm Shahjahan Hridoy, a passionate Full Stack Web Developer who
-              enjoys building responsive, user-friendly, and scalable web
-              applications. I love solving real-world problems with clean code
-              and continuously learning new technologies.
+              Hi, I'm{" "}
+              <span className="font-semibold text-white">Shahjahan Hridoy</span>
+              , a passionate Full Stack Web Developer with a strong interest in
+              building modern, responsive, and user-friendly web applications.
+              My programming journey began with curiosity about how websites
+              work, which gradually inspired me to learn HTML, CSS, JavaScript,
+              and later modern technologies like React, Node.js, Express.js,
+              PostgreSQL, and Prisma ORM. Since then, I have been continuously
+              improving my skills by building real-world projects and exploring
+              new technologies.
             </p>
 
             <p className="mt-5 leading-8 text-gray-400">
-              My main stack includes React, Tailwind CSS, Node.js, Express.js,
-              PostgreSQL, and Prisma ORM. My goal is to build impactful digital
-              products and grow as a software engineer.
+              I enjoy developing clean, scalable, and problem-solving
+              applications that provide an excellent user experience. My
+              favorite part of development is working on full-stack projects
+              where I can design beautiful frontends and build efficient backend
+              systems. Outside of programming, I enjoy learning new
+              technologies, reading tech articles, solving coding challenges,
+              and exploring innovative ideas. I consider myself a dedicated,
+              self-motivated, and fast learner who is always eager to take on
+              new challenges and grow as a software engineer.
             </p>
 
-            {/* Cards */}
+            {/* Highlights */}
             <div className="mt-10 grid gap-5 md:grid-cols-3">
               {highlights.map((item) => (
                 <div
@@ -95,7 +110,7 @@ export default function About() {
             <div className="mt-10 grid grid-cols-3 gap-6 text-center">
               <div>
                 <h3 className="text-3xl font-bold text-blue-500">10+</h3>
-                <p className="text-gray-400">Projects</p>
+                <p className="text-gray-400">Projects Completed</p>
               </div>
 
               <div>
@@ -109,11 +124,11 @@ export default function About() {
               </div>
             </div>
 
-            {/* Button */}
+            {/* Download CV */}
             <a
               href={cv}
               download="Shahjahan_Hridoy_CV.pdf"
-              className="mt-10 inline-flex items-center gap-3 rounded-full bg-blue-600 px-8 py-4 font-semibold transition hover:bg-blue-700"
+              className="mt-10 inline-flex items-center gap-3 rounded-full bg-blue-600 px-8 py-4 font-semibold transition duration-300 hover:bg-blue-700"
             >
               <FaDownload />
               Download CV
