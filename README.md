@@ -1,16 +1,73 @@
-# React + Vite
+# Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+This is my personal portfolio website where I showcase my skills, projects, education, and contact information. The website is fully responsive and designed with a clean and modern user interface to provide a great user experience across all devices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Main Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React.js
+- TypeScript
+- Tailwind CSS
+- Vite
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Main Features
+
+- Responsive Design
+- About Me Section
+- Skills Section
+- Projects Showcase
+- Resume Download
+- Contact Section
+- Smooth Navigation
+
+---
+
+## Dependencies
+
+Main packages used in this project:
+
+- React
+- React DOM
+- React Router DOM
+- Tailwind CSS
+- React Icons
+
+---
+
+## Run Locally
+
+### Clone the repository
+
+```bash
+git clone https://github.com/Hridoy004/portfolio.git
+```
+
+### Go to the project folder
+
+```bash
+cd portfolio
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run the development server
+
+```bash
+npm run dev
+```
+
+---
+
+## Relevant Links
+
+- **Live Site:** https://shahjahan-hridoy.vercel.app/
+- **GitHub Repository:** https://github.com/Hridoy004/portfolio
