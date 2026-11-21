@@ -29,7 +29,16 @@ const projects = [
       "PostgreSQL",
       "Redis",
     ],
-    github: "https://github.com/Hridoy004/synoflow-web",
+    repositories: [
+      {
+        label: "Frontend repository",
+        url: "https://github.com/Hridoy004/synoflow-web",
+      },
+      {
+        label: "Backend repository",
+        url: "https://github.com/Hridoy004/synoflow-api",
+      },
+    ],
     live: "https://synoflow-web-beta.vercel.app/",
     challenges: [
       "Implementing multi-tenant architecture with organizations, teams, and projects.",
@@ -57,7 +66,16 @@ const projects = [
       "Prisma",
       "PostgreSQL",
     ],
-    github: "https://github.com/Hridoy004/TaskNest-Frontend",
+    repositories: [
+      {
+        label: "Frontend repository",
+        url: "https://github.com/Hridoy004/TaskNest-Frontend",
+      },
+      {
+        label: "Backend repository",
+        url: "https://github.com/Hridoy004/TaskNest-Backend",
+      },
+    ],
     live: "https://tasknest-frontend-beta.vercel.app",
     challenges: [
       "Designing a reliable service booking workflow with multiple user roles.",
@@ -319,7 +337,11 @@ export default function Project() {
             >
               ×
             </button>
-            <img className="dialog-image" src={selectedProject.image} alt="" />
+            <img
+              className="dialog-image"
+              src={selectedProject.image}
+              alt={`${selectedProject.title} project preview`}
+            />
             <div className="dialog-content">
               <p className="eyebrow">{selectedProject.category}</p>
               <h2 id="project-dialog-title">{selectedProject.title}</h2>
@@ -354,6 +376,17 @@ export default function Project() {
                 </div>
               </div>
               <div className="dialog-actions">
+                {selectedProject.repositories?.map((repository) => (
+                  <a
+                    className="button button-outline"
+                    href={repository.url}
+                    key={repository.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FaGithub aria-hidden="true" /> {repository.label}
+                  </a>
+                ))}
                 {selectedProject.github && (
                   <a
                     className="button button-outline"
@@ -364,7 +397,7 @@ export default function Project() {
                     <FaGithub aria-hidden="true" /> GitHub repository
                   </a>
                 )}
-                {!selectedProject.github && (
+                {!selectedProject.github && !selectedProject.repositories && (
                   <span className="project-link-note">
                     Repository link not available
                   </span>
