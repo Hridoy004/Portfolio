@@ -1,356 +1,392 @@
-import { useState } from "react";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
-
+import { useEffect, useRef, useState } from "react";
+import { FaArrowRight, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import device from "../../assets/img/device.png";
 import emotion from "../../assets/img/emotion.png";
 import foodies from "../../assets/img/foodies.png";
 import landing from "../../assets/img/landing.png";
+import syno from "../../assets/img/syno.png";
 import tasker from "../../assets/img/tasker.png";
+import tasknest from "../../assets/img/tasknest.png";
 import techmart from "../../assets/img/techmart.png";
 import tic from "../../assets/img/tic-tac-toe.png";
 
 const projects = [
   {
-    id: 1,
-    title: "Tasker",
+    id: "synoflow",
+    title: "Synoflow",
+    category: "Project Management SaaS",
     description:
-      "Tasker helps you organize and track your daily tasks with ease.",
+      "A collaborative project management platform to organize teams, manage projects, track tasks, and streamline workflows.",
+    image: syno,
+    tech: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "Prisma",
+      "PostgreSQL",
+      "Redis",
+    ],
+    github: "https://github.com/Hridoy004/synoflow-web",
+    live: "https://synoflow-web-beta.vercel.app/",
+    challenges: [
+      "Implementing multi-tenant architecture with organizations, teams, and projects.",
+      "Managing complex task workflows, role-based access control, and secure data isolation.",
+    ],
+    future: [
+      "Introduce real-time collaboration, notifications, and advanced activity tracking.",
+      "Expand reporting, analytics, and integrations to improve team productivity.",
+    ],
+  },
+  {
+    id: "tasknest",
+    title: "TaskNest",
+    category: "Home Services Marketplace",
+    description:
+      "A convenient platform to discover, book, and manage trusted home services.",
+    image: tasknest,
+    tech: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "Prisma",
+      "PostgreSQL",
+    ],
+    github: "https://github.com/Hridoy004/TaskNest-Frontend",
+    live: "https://tasknest-frontend-beta.vercel.app",
+    challenges: [
+      "Designing a reliable service booking workflow with multiple user roles.",
+      "Managing service providers, bookings, and availability efficiently.",
+    ],
+    future: [
+      "Integrate online payments and real-time booking notifications.",
+      "Add provider ratings, reviews, and advanced service recommendations.",
+    ],
+  },
+  {
+    id: "tasker",
+    title: "Tasker",
+    category: "Productivity app",
+    description:
+      "A focused task manager to organize and keep track of everyday work.",
     image: tasker,
     tech: ["React", "Tailwind CSS", "JavaScript"],
     github: "https://github.com/Hridoy004/tasker",
     live: "https://tasker-ha.vercel.app/",
-
     challenges: [
-      "Built a clean and responsive user interface.",
-      "Managed application state efficiently.",
-      "Implemented CRUD operations for tasks.",
+      "Designing a clear, responsive interface for everyday task management.",
+      "Keeping task state and CRUD interactions predictable.",
     ],
-
     future: [
-      "Add user authentication.",
-      "Enable task reminders and notifications.",
-      "Support drag-and-drop task management.",
+      "Add authentication and cross-device task sync.",
+      "Support reminders and drag-and-drop organization.",
     ],
   },
   {
-    id: 2,
-    title: "Landing Page",
-    description: "Responsive landing page built with React and Tailwind CSS.",
+    id: "landing-page",
+    title: "Brillance Landing Page",
+    category: "Web experience",
+    description:
+      "A responsive marketing page built around a clean visual hierarchy.",
     image: landing,
     tech: ["React", "Tailwind CSS"],
     github: "https://github.com/Hridoy004/brillance-the-landing-page",
     live: "https://brillance-the-landing-page-ha.vercel.app/",
-
     challenges: [
-      "Created a fully responsive layout.",
-      "Maintained a clean and consistent UI.",
-      "Optimized the page for different screen sizes.",
+      "Building a consistent responsive layout across screen sizes.",
+      "Keeping spacing and visual hierarchy cohesive throughout the page.",
     ],
-
     future: [
-      "Add smooth scroll animations.",
-      "Improve accessibility and SEO.",
-      "Integrate a contact form.",
+      "Improve accessibility and search metadata.",
+      "Add an integrated contact form and subtle motion.",
     ],
   },
   {
-    id: 3,
+    id: "tic-tac-toe",
     title: "Tic Tac Toe",
-    description: "Tic-Tac-Toe game built with React and Tailwind CSS.",
+    category: "Interactive game",
+    description:
+      "A simple, responsive two-player game with clear turn and win states.",
     image: tic,
     tech: ["React", "Tailwind CSS"],
     github: "https://github.com/Hridoy004/Tic-Tac-Toe",
     live: "https://tic-tac-toe-ha.vercel.app/",
-
     challenges: [
-      "Implemented game logic for each move.",
-      "Detected winning combinations accurately.",
-      "Designed a responsive and interactive UI.",
+      "Modeling game turns and winning combinations accurately.",
+      "Making each move and game state easy to understand.",
     ],
-
     future: [
-      "Add score tracking.",
-      "Include single-player mode with AI.",
-      "Add game history and reset options.",
+      "Add a single-player mode with an AI opponent.",
+      "Keep score and provide a game history.",
     ],
   },
   {
-    id: 4,
+    id: "foodies",
     title: "Foodies",
+    category: "Responsive website",
     description:
-      "A static food website built with HTML and CSS, showcasing responsive design and clean UI principles.",
+      "A food-focused website exploring responsive layout and clean UI.",
     image: foodies,
     tech: ["HTML", "CSS"],
     github: "https://github.com/Hridoy004/foodies",
     live: "https://foodies-alpha-ten.vercel.app/",
-
     challenges: [
-      "Built a fully responsive layout.",
-      "Created a clean and modern UI.",
-      "Maintained consistent spacing and typography.",
+      "Building a responsive layout with foundational web technologies.",
+      "Maintaining consistent spacing and visual rhythm.",
     ],
-
     future: [
-      "Add interactive animations.",
-      "Integrate an online ordering feature.",
-      "Convert the project to React.",
+      "Add an online ordering experience.",
+      "Introduce richer interactions and reusable components.",
     ],
   },
   {
-    id: 5,
-    title: "E-Commerce Website",
+    id: "techmart",
+    title: "Techmart",
+    category: "E-commerce concept",
     description:
-      "A modern full-stack e-commerce application with authentication, shopping cart, payment integration and admin dashboard.",
+      "An e-commerce project exploring authentication, shopping flows, and administration.",
     image: techmart,
     tech: ["Angular", "Node.js", "Express", "MongoDB"],
-    github:
-      "https://docs.google.com/document/d/1RTmc35sE-TMnuCTlhiTnPktQW4Ff7L-yNoQyyKeh_oA/edit?tab=t.0",
-
+    github: null,
+    live: null,
     challenges: [
-      "Implemented secure user authentication.",
-      "Managed shopping cart and order flow.",
-      "Built responsive admin and user dashboards.",
+      "Connecting authentication with the shopping and order flows.",
+      "Designing distinct experiences for customers and administrators.",
     ],
-
     future: [
-      "Add product reviews and ratings.",
-      "Implement wishlist and order tracking.",
+      "Add product reviews, wishlists, and order tracking.",
+      "Publish a public repository and live demo when available.",
     ],
   },
   {
-    id: 6,
-    title: "Facial Expressions Recognition",
+    id: "emotion-recognition",
+    title: "Facial Expression Recognition",
+    category: "Machine learning",
     description:
-      "A CNN-based facial emotion recognition system using Keras to classify human emotions from facial images.",
+      "A CNN-based experiment using Keras to classify emotions from facial images.",
     image: emotion,
     tech: ["Python", "Keras", "CNN"],
     github: "https://github.com/Hridoy004/Facial-Expressions-Recognition",
-
+    live: null,
     challenges: [
-      "Preprocessed facial image datasets.",
-      "Trained and optimized the CNN model.",
-      "Improved emotion classification accuracy.",
+      "Preparing facial image data for model training.",
+      "Training and tuning a convolutional neural network.",
     ],
-
     future: [
-      "Support real-time webcam detection.",
-      "Increase model accuracy with larger datasets.",
-      "Deploy the model as a web application.",
+      "Explore real-time webcam inference.",
+      "Evaluate performance with larger, more diverse datasets.",
     ],
   },
   {
-    id: 7,
+    id: "home-security",
     title: "Home Security Device",
+    category: "Hardware project",
     description:
-      "A GSM-based alarm system using Arduino, PIR sensor, and GSM module to send SMS alerts on motion detection.",
+      "An Arduino, PIR, and GSM-based alarm concept that sends SMS alerts when motion is detected.",
     image: device,
     tech: ["Arduino", "PIR Sensor", "GSM Module"],
     github: "https://github.com/Hridoy004/Home-Security-Device",
-
+    live: null,
     challenges: [
-      "Integrated Arduino with GSM and PIR modules.",
-      "Implemented reliable motion detection.",
-      "Configured SMS alerts for security events.",
+      "Integrating the motion sensor and GSM module with the Arduino.",
+      "Sending useful SMS alerts in response to detected motion.",
     ],
-
     future: [
-      "Develop a mobile monitoring app.",
-      "Add a camera for live surveillance.",
-      "Support Wi-Fi and IoT connectivity.",
+      "Build a mobile monitoring experience.",
+      "Explore Wi-Fi connectivity and live camera support.",
     ],
   },
 ];
 
 export default function Project() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const dialogRef = useRef(null);
+
+  useEffect(() => {
+    if (!selectedProject) return undefined;
+
+    const previousFocus = document.activeElement;
+    document.body.style.overflow = "hidden";
+    dialogRef.current?.querySelector(".dialog-close")?.focus();
+
+    const handleDialogKeys = (event) => {
+      if (event.key === "Escape") {
+        setSelectedProject(null);
+      } else if (event.key === "Tab") {
+        const focusable = dialogRef.current?.querySelectorAll(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        );
+        if (!focusable?.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleDialogKeys);
+    return () => {
+      document.removeEventListener("keydown", handleDialogKeys);
+      document.body.style.overflow = "";
+      previousFocus?.focus();
+    };
+  }, [selectedProject]);
 
   return (
-    <section id="projects" className="bg-[#0b0b0b] py-24 text-white">
-      <div className="mx-auto max-w-7xl px-6">
-        {/* Heading */}
-        <div className="text-center">
-          <span className="rounded-full border border-blue-500/30 bg-blue-500/10 px-5 py-2 text-sm text-blue-400">
-            Portfolio
-          </span>
-
-          <h2 className="mt-6 text-5xl font-bold">Featured Projects</h2>
-
-          <p className="mx-auto mt-6 max-w-2xl text-gray-400">
-            Here are some projects that showcase my experience in frontend and
-            backend development.
+    <section id="projects" className="section">
+      <div className="page-shell">
+        <div className="section-heading">
+          <p className="eyebrow">Selected work</p>
+          <h2 className="section-title">
+            A few things I&apos;ve <span>built.</span>
+          </h2>
+          <p>
+            Experiments and projects across web development, machine learning,
+            and hardware.
           </p>
         </div>
-
-        {/* Cards */}
-        <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="group overflow-hidden rounded-3xl border border-white/10 bg-[#141414] transition duration-300 hover:-translate-y-2 hover:border-blue-500"
-            >
-              {/* Image */}
-              <div className="overflow-hidden">
+        <div className="project-grid">
+          {projects.map((project, index) => (
+            <article className="project-card" key={project.id}>
+              <button
+                className="project-image-button"
+                type="button"
+                onClick={() => setSelectedProject(project)}
+                aria-label={`View details for ${project.title}`}
+              >
                 <img
                   src={project.image}
-                  alt={project.title}
-                  className="h-56 w-full object-cover transition duration-500 group-hover:scale-110"
+                  alt={`${project.title} project preview`}
+                  loading="lazy"
+                  decoding="async"
+                  fetchPriority={index < 3 ? "auto" : "low"}
                 />
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold">{project.title}</h3>
-
-                <p className="mt-4 text-gray-400">{project.description}</p>
-
-                {/* Tech */}
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-400"
-                    >
-                      {tech}
-                    </span>
+                <span className="project-image-link">
+                  View project <FaArrowRight />
+                </span>
+              </button>
+              <div className="project-content">
+                <p className="project-category">{project.category}</p>
+                <h3>{project.title}</h3>
+                <p className="project-description">{project.description}</p>
+                <div className="project-tags">
+                  {project.tech.map((item) => (
+                    <span key={item}>{item}</span>
                   ))}
                 </div>
-
-                {/* Buttons */}
                 <button
+                  className="project-details-link"
+                  type="button"
                   onClick={() => setSelectedProject(project)}
-                  className="group mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-5 py-3 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_30px_rgba(59,130,246,.35)]"
                 >
-                  View Details
-                  <FaExternalLinkAlt className="transition group-hover:translate-x-1" />
+                  View details <FaArrowRight aria-hidden="true" />
                 </button>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
+
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-          <div className="relative w-full max-w-5xl max-h-[92vh] overflow-hidden rounded-3xl border border-white/10 bg-[#111827] shadow-[0_20px_80px_rgba(0,0,0,0.5)]">
-            {/* Close Button */}
+        <div
+          className="project-dialog-backdrop"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) setSelectedProject(null);
+          }}
+        >
+          <section
+            className="project-dialog"
+            ref={dialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="project-dialog-title"
+          >
             <button
+              className="dialog-close"
+              type="button"
+              aria-label="Close project details"
               onClick={() => setSelectedProject(null)}
-              className="absolute right-5 top-5 z-30 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-2xl text-gray-300 transition hover:bg-red-500 hover:text-white"
             >
               ×
             </button>
-
-            <div className="max-h-[92vh] overflow-y-auto">
-              {/* Project Image */}
-              <div className="border-b border-white/10 bg-gradient-to-b from-[#1e293b] to-[#0f172a] p-8">
-                <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#111827] shadow-xl">
-                  <img
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    className="mx-auto max-h-[430px] w-full object-contain p-4 transition duration-300 hover:scale-[1.02]"
-                  />
-                </div>
-
-                <div className="mt-6">
-                  <h2 className="text-3xl font-bold text-white">
-                    {selectedProject.title}
-                  </h2>
+            <img className="dialog-image" src={selectedProject.image} alt="" />
+            <div className="dialog-content">
+              <p className="eyebrow">{selectedProject.category}</p>
+              <h2 id="project-dialog-title">{selectedProject.title}</h2>
+              <div className="dialog-block">
+                <h3>Overview</h3>
+                <p>{selectedProject.description}</p>
+              </div>
+              <div className="dialog-block">
+                <h3>Technology stack</h3>
+                <div className="project-tags">
+                  {selectedProject.tech.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
                 </div>
               </div>
-
-              {/* Content */}
-              <div className="space-y-10 p-8">
-                {/* Overview */}
-                <div>
-                  <h3 className="mb-3 border-l-4 border-blue-500 pl-3 text-xl font-semibold text-white">
-                    Project Overview
-                  </h3>
-
-                  <p className="leading-8 text-gray-400">
-                    {selectedProject.description}
-                  </p>
-                </div>
-
-                {/* Technology */}
-                <div>
-                  <h3 className="mb-4 border-l-4 border-blue-500 pl-3 text-xl font-semibold text-white">
-                    Technology Stack
-                  </h3>
-
-                  <div className="flex flex-wrap gap-3">
-                    {selectedProject.tech.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-sm font-medium text-blue-400"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Challenges */}
-                <div>
-                  <h3 className="mb-4 border-l-4 border-blue-500 pl-3 text-xl font-semibold text-white">
-                    Challenges
-                  </h3>
-
-                  <div className="space-y-3">
+              <div className="dialog-columns">
+                <div className="dialog-block">
+                  <h3>Challenges</h3>
+                  <ul>
                     {selectedProject.challenges.map((item) => (
-                      <div
-                        key={item}
-                        className="rounded-xl border border-white/10 bg-white/5 p-4 text-gray-400"
-                      >
-                        • {item}
-                      </div>
+                      <li key={item}>{item}</li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
-
-                {/* Future Improvements */}
-                <div>
-                  <h3 className="mb-4 border-l-4 border-blue-500 pl-3 text-xl font-semibold text-white">
-                    Future Improvements
-                  </h3>
-
-                  <div className="space-y-3">
+                <div className="dialog-block">
+                  <h3>Future plans</h3>
+                  <ul>
                     {selectedProject.future.map((item) => (
-                      <div
-                        key={item}
-                        className="rounded-xl border border-white/10 bg-white/5 p-4 text-gray-400"
-                      >
-                        • {item}
-                      </div>
+                      <li key={item}>{item}</li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
-
-                {/* Buttons */}
-                <div className="flex flex-wrap gap-4 pt-2">
+              </div>
+              <div className="dialog-actions">
+                {selectedProject.github && (
                   <a
+                    className="button button-outline"
                     href={selectedProject.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 rounded-xl border border-white/10 px-6 py-3 font-medium text-white transition-all duration-300 hover:border-blue-500 hover:bg-blue-600"
                   >
-                    <FaGithub />
-                    GitHub
+                    <FaGithub aria-hidden="true" /> GitHub repository
                   </a>
-
-                  {selectedProject.live && (
-                    <a
-                      href={selectedProject.live}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 font-medium text-white transition-all duration-300 hover:bg-blue-700"
-                    >
-                      <FaExternalLinkAlt />
-                      Live Demo
-                    </a>
-                  )}
-                </div>
+                )}
+                {!selectedProject.github && (
+                  <span className="project-link-note">
+                    Repository link not available
+                  </span>
+                )}
+                {selectedProject.live && (
+                  <a
+                    className="button button-primary"
+                    href={selectedProject.live}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Live project <FaExternalLinkAlt aria-hidden="true" />
+                  </a>
+                )}
+                {!selectedProject.live && (
+                  <span className="project-link-note">
+                    Live demo not available
+                  </span>
+                )}
               </div>
             </div>
-          </div>
+          </section>
         </div>
       )}
     </section>

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   FaEnvelope,
   FaGithub,
@@ -8,152 +9,66 @@ import {
 } from "react-icons/fa";
 
 export default function Contact() {
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const subject = encodeURIComponent(formData.get("subject"));
+    const body = encodeURIComponent(
+      `From: ${formData.get("name")} (${formData.get("email")})\n\n${formData.get("message")}`,
+    );
+    window.location.href = `mailto:hridoyahmed2435@gmail.com?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+  }
+
   return (
-    <section id="contact" className="bg-[#0d0d0d] py-24 px-6 text-white">
-      <div className="max-w-7xl mx-auto">
-        {/* Heading */}
-
-        <div className="text-center mb-20">
-          <p className="text-blue-500 font-semibold uppercase tracking-[4px]">
-            Contact
-          </p>
-
-          <h2 className="text-4xl md:text-6xl font-extrabold mt-3">
-            Let's Work Together
-          </h2>
-
-          <p className="mt-6 max-w-2xl mx-auto text-gray-400 leading-8">
-            Have a project in mind or looking for a Full Stack Web Developer?
-            Feel free to reach out. I'd love to hear from you.
-          </p>
+    <section id="contact" className="section section-muted">
+      <div className="page-shell">
+        <div className="contact-heading">
+          <p className="eyebrow">Have a good one in mind?</p>
+          <h2 className="section-title">Let&apos;s make it <span>happen.</span></h2>
+          <p>I&apos;m happy to talk about a project, an opportunity, or just say hello.</p>
         </div>
-
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left */}
-
-          <div>
-            <h3 className="text-3xl font-bold mb-8">Get In Touch</h3>
-
-            <div className="space-y-6">
-              {/* Email */}
-
-              <div className="group flex items-center gap-5 rounded-2xl border border-white/10 bg-[#161616] p-5 transition hover:border-blue-500 hover:-translate-y-1">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-500 text-xl">
-                  <FaEnvelope />
-                </div>
-
-                <div className="min-w-0">
-                  <p className="text-gray-400 text-sm">Email</p>
-
-                  <a
-                    href="mailto:hridoyahmed2435@gmail.com"
-                    className="break-all text-lg font-medium hover:text-blue-400"
-                  >
-                    hridoyahmed2435@gmail.com
-                  </a>
-                </div>
-              </div>
-
-              {/* Phone */}
-
-              <div className="group flex items-center gap-5 rounded-2xl border border-white/10 bg-[#161616] p-5 transition hover:border-blue-500 hover:-translate-y-1">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-500 text-xl">
-                  <FaPhoneAlt />
-                </div>
-
-                <div>
-                  <p className="text-gray-400 text-sm">Phone</p>
-
-                  <a
-                    href="tel:+8801924143235"
-                    className="text-lg font-medium hover:text-blue-400"
-                  >
-                    +880 1924-143235
-                  </a>
-                </div>
-              </div>
-
-              {/* Location */}
-
-              <div className="group flex items-center gap-5 rounded-2xl border border-white/10 bg-[#161616] p-5 transition hover:border-blue-500 hover:-translate-y-1">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-500 text-xl">
-                  <FaMapMarkerAlt />
-                </div>
-
-                <div>
-                  <p className="text-gray-400 text-sm">Location</p>
-
-                  <p className="text-lg font-medium">Sylhet, Bangladesh</p>
-                </div>
-              </div>
+        <div className="contact-layout">
+          <div className="contact-details">
+            <a className="contact-item" href="mailto:hridoyahmed2435@gmail.com">
+              <span className="contact-icon"><FaEnvelope aria-hidden="true" /></span>
+              <span><small>Email me</small><strong>hridoyahmed2435@gmail.com</strong></span>
+            </a>
+            <a className="contact-item" href="tel:+8801924143235">
+              <span className="contact-icon"><FaPhoneAlt aria-hidden="true" /></span>
+              <span><small>Call me</small><strong>+880 1924-143235</strong></span>
+            </a>
+            <div className="contact-item">
+              <span className="contact-icon"><FaMapMarkerAlt aria-hidden="true" /></span>
+              <span><small>Based in</small><strong>Sylhet, Bangladesh</strong></span>
             </div>
-
-            {/* Social */}
-
-            <div className="mt-10">
-              <h4 className="font-semibold mb-5">Follow Me</h4>
-
-              <div className="flex gap-4">
-                <a
-                  href="https://github.com/Hridoy004"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-[#161616] transition hover:bg-blue-500 hover:border-blue-500"
-                >
-                  <FaGithub size={20} />
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/in/shahjahan-hridoy/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-[#161616] transition hover:bg-blue-500 hover:border-blue-500"
-                >
-                  <FaLinkedin size={20} />
-                </a>
-              </div>
+            <div className="contact-socials">
+              <a href="https://github.com/Hridoy004" target="_blank" rel="noreferrer" aria-label="GitHub">
+                <FaGithub />
+              </a>
+              <a href="https://www.linkedin.com/in/shahjahan-hridoy/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <FaLinkedin />
+              </a>
             </div>
           </div>
-
-          {/* Right */}
-
-          <div className="rounded-3xl border border-white/10 bg-[#161616] p-8 md:p-10">
-            <h3 className="text-3xl font-bold mb-8">Send Message</h3>
-
-            <form className="space-y-5">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full rounded-xl border border-white/10 bg-[#0d0d0d] px-5 py-4 outline-none transition focus:border-blue-500"
-              />
-
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full rounded-xl border border-white/10 bg-[#0d0d0d] px-5 py-4 outline-none transition focus:border-blue-500"
-              />
-
-              <input
-                type="text"
-                placeholder="Subject"
-                className="w-full rounded-xl border border-white/10 bg-[#0d0d0d] px-5 py-4 outline-none transition focus:border-blue-500"
-              />
-
-              <textarea
-                rows={6}
-                placeholder="Write your message..."
-                className="w-full resize-none rounded-xl border border-white/10 bg-[#0d0d0d] px-5 py-4 outline-none transition focus:border-blue-500"
-              />
-
-              <button
-                type="submit"
-                className="flex items-center justify-center gap-3 rounded-full bg-blue-600 px-8 py-4 font-semibold transition hover:bg-blue-700"
-              >
-                Send Message
-                <FaPaperPlane />
-              </button>
-            </form>
-          </div>
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <h3>Send a message</h3>
+            <p>Your message will open in your email app, ready to send.</p>
+            <label htmlFor="contact-name">Your name</label>
+            <input id="contact-name" name="name" autoComplete="name" placeholder="Jane Smith" required />
+            <label htmlFor="contact-email">Email address</label>
+            <input id="contact-email" name="email" type="email" autoComplete="email" placeholder="jane@example.com" required />
+            <label htmlFor="contact-subject">Subject</label>
+            <input id="contact-subject" name="subject" placeholder="What would you like to discuss?" required />
+            <label htmlFor="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="4" placeholder="Tell me a little about it..." required />
+            <button className="button button-primary" type="submit">
+              {submitted ? "Open your email app" : "Prepare email"} <FaPaperPlane aria-hidden="true" />
+            </button>
+            {submitted && <p className="form-feedback" role="status">Your email app should open with this message ready to send.</p>}
+          </form>
         </div>
       </div>
     </section>

@@ -12,27 +12,14 @@ function App() {
   return (
     <>
       <Navbar />
-
-      <main className="pt-24 min-h-screen">
-        {/* Hero */}
+      <main>
         <Home />
-
-        {/* About */}
         <About />
-
-        {/* Education */}
         <Education />
-
-        {/* Skills */}
         <Skills />
-
-        {/* Projects */}
         <Project />
-
-        {/* Contact */}
         <Contact />
       </main>
-
       <Footer />
     </>
   );
